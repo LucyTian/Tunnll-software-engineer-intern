@@ -136,7 +136,7 @@ class Map(object):
         'death': Death(),
         'finished': Finished(),
     }
-
+    # MAP has the attribute start_scene
     def __init__(self, start_scene):
         self.start_scene = start_scene
 
