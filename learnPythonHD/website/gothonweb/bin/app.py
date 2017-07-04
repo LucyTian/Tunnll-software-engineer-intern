@@ -1,15 +1,17 @@
 import web
 urls = (
-    '/','index'
+    '/hello','Index'
 )
 
 app = web.application(urls, globals())
 # the font and size is under the template directory
 render = web.template.render('templates/')
-class index(object):
+class Index(object):
+    form = web.input(name="Nobody")
     def GET(self):
-        greeting = "Hello World"
-        return render.index(greeting)
+        greeting = "Hello, %s" % form,name
+        #return render.index(greeting)
+        return render.index(greeting = greeting)
 
 if __name__ == "__main__":
     app.run()
