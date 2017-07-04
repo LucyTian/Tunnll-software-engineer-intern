@@ -5,7 +5,7 @@ urls = (
 
 app = web.application(urls, globals())
 # the font and size is under the template directory
-render = web.template.render('templates/')
+render = web.template.render('templates/',base = "layout")
 class Index(object):
     def GET(self):
         return render.hello_form()
