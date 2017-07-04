@@ -8,13 +8,14 @@ app = web.application(urls, globals())
 render = web.template.render('templates/')
 class Index(object):
     def GET(self):
-        form = web.input(name="Nobody",greet = None)
-        if form.greet:
-            greeting = "%s, %s" % (form.greet,form.name)
+        return render.hello_form()
+
+    def POST(self):
+        form = web.input(name="Nobody",greet="Hello")
+        greeting = "%s, %s" % (form.greet,form.name)
             #http://localhost:8080/hello?name=Frank&greet=Hola This url would work
             #return render.index(greeting)
-            return render.index(greeting = greeting)
-        else:
-            return "ERROR: greet is required."
+        return render.index(greeting = greeting)
+
 if __name__ == "__main__":
     app.run()
