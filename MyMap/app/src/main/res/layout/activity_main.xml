@@ -15,9 +15,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- This is the button for exit button-->
-
     <!-- Use the relativeLayout -->
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools = "http://schemas.android.com/tools"
         android:id="@+id/RelativeLayout1"
@@ -25,12 +24,24 @@
         android:layout_height="match_parent">
 
         <!-- Use ImageButton to use a exit icon for exit button-->
+
         <ImageButton android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:id="@+id/btn1"
             android:layout_alignParentRight="true"
             android:src="@drawable/ic_exit"/>
     </RelativeLayout>
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools = "http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        tools:context = "com.lu.mymap.MainActivity" />
+    <!--add a fragment element to activity as a container for the map-->
+
 
 
 </android.support.constraint.ConstraintLayout>
