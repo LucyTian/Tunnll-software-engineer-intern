@@ -148,6 +148,8 @@ class MainActivity : AppCompatActivity(),OnMapReadyCallback,
          */
         if (mLocationPermission) {
             mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient)
+        } else {
+            exitProcess(0)
         }
 
         // Set the map's camera position to the current location of the device
@@ -159,10 +161,11 @@ class MainActivity : AppCompatActivity(),OnMapReadyCallback,
             mMap?.addMarker(MarkerOptions().position(mLatLng).title("You are here"))
             mMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(mLatLng, DEFAULT_ZOOM))
         } else {
-            println("gps location not found!!!!!")
-            Log.d(TAG, "Current location is null. Using default.")
-            mMap?.addMarker(MarkerOptions().position(mDefaultLocation).title("This is Pittsburgh"))
-            mMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM))
+            //println("gps location not found!!!!!")
+            //Log.d(TAG, "Current location is null. Using default.")
+            //mMap?.addMarker(MarkerOptions().position(mDefaultLocation).title("This is Pittsburgh"))
+            //
+            // mMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM))
         }
     }
     /**
