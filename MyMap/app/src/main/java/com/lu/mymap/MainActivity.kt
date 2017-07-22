@@ -162,10 +162,9 @@ class MainActivity : AppCompatActivity(),OnMapReadyCallback,
             mMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(mLatLng, DEFAULT_ZOOM))
         } else {
             //println("gps location not found!!!!!")
-            //Log.d(TAG, "Current location is null. Using default.")
-            //mMap?.addMarker(MarkerOptions().position(mDefaultLocation).title("This is Pittsburgh"))
-            //
-            // mMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM))
+            Log.d(TAG, "Current location is null. Using default.")
+            mMap?.addMarker(MarkerOptions().position(mDefaultLocation).title("This is Pittsburgh"))
+            mMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM))
         }
     }
     /**

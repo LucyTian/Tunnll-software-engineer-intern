@@ -16,6 +16,8 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         resValue "string","google_maps_key",(project.
                 findProperty("GOOGLE_MAPS_API_KEY")?:"")
+        // Enabling multidex support
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -23,8 +25,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
 
+    sourceSets{
+        main.java.srcDirs += 'src/main.kotlin'
+        mian.java.srcDirs +='src/test/kotlin'
+        androidTest.java.srcDirs+='src/androidTest/kotlin'
+    }
+}
+// Ensure Kotlin will not be used in production code
+afterEvaluate{
+    android.sourceSets.all{ sourceSets->
+        if (!sourceSets.name.startsWith('test') || !sourceSets.name.startsWith('androidTest')){
+            sourceSets.kotlin.setSrcDirs([])
+        }
+    }
+}
 dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -33,7 +48,25 @@ dependencies {
     })
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:26.0.0-beta2'
+
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.google.android.gms:play-services:9.8.0'
+
+    // dependencies for instrumented test
+    androidTestCompile 'com.android.support:support-annotations:24.0.0'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile 'com.android.support.test:rules:0.5'
+
+    // Optional -- Hamcrest library
+    androidTestCompile 'org.hamcrest:hamcrest-library:1.3'
+    // Optional -- UI testing with Espresso
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
+    // Optional -- UI testing with UI Automator
+    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
+
+    // Resolve dependency conflict between support-annotation and espresso-core library
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
 }
