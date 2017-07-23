@@ -148,8 +148,6 @@ class MainActivity : AppCompatActivity(),OnMapReadyCallback,
          */
         if (mLocationPermission) {
             mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient)
-        } else {
-            exitProcess(0)
         }
 
         // Set the map's camera position to the current location of the device
