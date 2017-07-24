@@ -7,7 +7,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 * Android SDK. Can install the SDK via Android Studio or stand-alone tools. 
-* IDE: Android Studio recommended which is the official IDE for Android, this project requires [Android Studio 3.0]((https://developer.android.com/studio/preview/index.html)) for minimum.
+* IDE: Android Studio recommended which is the official IDE for Android, this project requires [Android Studio 3.0](https://developer.android.com/studio/preview/index.html) for minimum.
 
 ### Building the App
 * First, install Kotlin plugin: navigate to `Android Studio -> Preferences -> Plugins -> Browse Repositories` and search for "Kotlin" then, click on "install". When the install is complete, you will need to restart Android Studio to apply the new plugin.
