@@ -1,7 +1,5 @@
 
 # My Position - Show device position
-<img   src="https://maxcdn.icons8.com/app/uploads/2016/10/globe-map-icon.png", width=30%>
-![icon](https://maxcdn.icons8.com/app/uploads/2016/10/globe-map-icon.png)
 This is an android app used to show the current position of a device using both GPS and network to get the location written in Kotlin language.
 
 ## Getting Started
@@ -9,7 +7,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 * Android SDK. Can install the SDK via Android Studio or stand-alone tools. See [Installing the Android SDK](http://developer.android.com/sdk/installing/index.html)
-* IDE: Android Studio recommended which is the official IDE for Android.
+* IDE: Android Studio recommended which is the official IDE for Android, this project requires Android Studio 3.0 for minimum.
 
 ### Building the App
 * First, install Kotlin plugin: navigate to `Android Studio -> Preferences -> Plugins -> Browse Repositories` and search for "Kotlin" then, click on "install". When the install is complete, you will need to restart Android Studio to apply the new plugin.
@@ -25,9 +23,7 @@ Open Android Studio and select `File -> Open...` or from the Android Launcher se
 * A Gradle sync should start, but you can force a sync and build the 'app' module as needed.
 
 ## Running the App
-Connect an Android device to your development machine that allows USB debugging.
+Connect an Android device to your development machine that allows USB debugging, the device should have Google Play services installed
 * Select Run -> Run 'app' (or Debug 'app') from the menu bar
 * Select the device you wish to run the app on and click 'OK'
 
-
-- - -
